@@ -4,6 +4,7 @@ import Prelude hiding (and)
 -- Prelude in C Major by J. S. Bach
 -- This song is used as an example due to its exceptionally structured melody.
 
+-- tempo data
 tempo :: Frequency
 tempo = 80
 
@@ -14,9 +15,11 @@ quarter = 60 / tempo
 eighth = quarter / 2
 sixteenth = quarter / 4
 
+-- the "instrument" to use
 waveType :: Frequency -> Wave
 waveType f = sine f ~+~ square f
 
+-- the first 32 measures, compressed
 notes :: [[Frequency]]
 notes =
   [ [c 4, e 4, g 4, c 5, e 5] -- measure 1
@@ -53,6 +56,7 @@ notes =
   , [c 2, c 3, g 3, a' 3,e 4]
   ]
 
+-- the last 3 measures
 ending1, ending2, ending3 :: Song
 ending1 =
   waveType (c 2) `for` whole
@@ -76,10 +80,12 @@ ending2 =
   )
 ending3 = chord (map waveType [ c 2, c 3, e 4, g 4, c 5]) `for` whole * 1.5
 
+-- play a list of notes in an arpeggio
 arpeggio :: [Wave] -> Time -> Song
-arpeggio []     dur = rest `for` 0
+arpeggio []     _   = rest `for` 0
 arpeggio (w:ws) dur = w `for` dur `andThen` arpeggio ws dur
 
+-- uncompress a measure
 playMeasure :: [Wave] -> Song
 playMeasure [w1, w2, w3, w4, w5] =
   let arp = arpeggio [w3, w4, w5] sixteenth

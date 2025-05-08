@@ -1,6 +1,9 @@
 import Hwave
 import Prelude hiding (and)
 
+-- Prelude in C Major by J. S. Bach
+-- This song is used as an example due to its exceptionally structured melody.
+
 tempo :: Frequency
 tempo = 80
 

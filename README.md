@@ -34,7 +34,7 @@ description of the RIFF file
 format](https://mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/WAVE.html),
 Bjoern Schilberg for their [How to Write a Wav File in
 C](https://gist.github.com/BjoernSchilberg/c5deafaa5b3d477f60543ef59fad0a00)
-GitHub gist, and [http://www.topherlee.com/software/pcm-tut-wavformat.html] for
+GitHub gist, and http://www.topherlee.com/software/pcm-tut-wavformat.html for
 its information on the WAV/RIFF file format. I should also shout out the Desmos
 graphing calculator for its `tone` function which got me interested in waveform
 manipulation. It was a great jumping-off point--just not quite as powerful as
